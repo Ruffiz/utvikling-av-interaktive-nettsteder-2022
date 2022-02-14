@@ -11,7 +11,7 @@ function App() {
   const [inputValue, setInputValue] = useState("");
   const [clicked, isClicked] = useState(false);
 
-  const buttonClicked = () => {
+  const handleButtonClicked = () => {
     isClicked(!clicked);
   };
   return (
@@ -28,7 +28,7 @@ function App() {
         { id: 2, food: "Hamburger" },
         { id: 3, food: "Coke" }
       ]}/>
-      <Alert setInputValue={setInputValue} buttonClicked={buttonClicked} />
+      <Alert setInputValue={setInputValue} handleButtonClicked={handleButtonClicked} />
       {clicked ? <p>{inputValue}</p> : null}
     </div>
   );

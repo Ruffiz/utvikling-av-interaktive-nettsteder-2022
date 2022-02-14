@@ -1,4 +1,4 @@
-const Alert = ({ inputValue, setInputValue, buttonClicked }) => {
+const Alert = ({ inputValue, setInputValue, handleButtonClicked }) => {
   //const [inputValue, setInputValue] = useState("");
 
   const handleChange = (e) => {
@@ -14,7 +14,7 @@ const Alert = ({ inputValue, setInputValue, buttonClicked }) => {
     <>
       <input autoFocus onChange={handleChange} value={inputValue} />
       {/* <h1>{inputValue}</h1> */}
-      <button onClick={buttonClicked}>Click me!</button>
+      <button onClick={handleButtonClicked}>Click me!</button>
     </>
   );
 };
