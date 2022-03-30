@@ -60,3 +60,13 @@
 .actorLinkList {
   color: lightcyan;
 }
+
+.moviesWithinActor {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
+}
+
+.movieImageInActor {
+  max-width: 100px;
+  max-height: 150px;
+}

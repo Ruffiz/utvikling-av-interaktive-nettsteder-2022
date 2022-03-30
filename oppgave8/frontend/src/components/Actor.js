@@ -49,7 +49,20 @@ export default function Actor() {
       </span>
       <h3>{actor.fullName} har både hovedrolle og birolle i filmene under</h3>
 
-      {movies && movies.map((movie) => <h4>{movie.title}</h4>)}
+      {movies &&
+        movies.map((movie) => (
+          // TODO - Style riktig !!
+          <div className="moviesWithinActor">
+            <span>
+              <h4>{movie.title}</h4>
+              <img
+                src={movie.movieImage?.asset.url}
+                alt="movieImage"
+                className="movieImageInActor"
+              />
+            </span>
+          </div>
+        ))}
     </div>
   );
 }
