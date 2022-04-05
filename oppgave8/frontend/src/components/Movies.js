@@ -73,9 +73,8 @@ const Movies = () => {
       <ul className="movieList">
         {movies &&
           movies?.map((movie, index) => (
-            <li key={movie.slug} className="movieItem">
-              <h2>{movie.title + " (" + movie.year + ")"}</h2>
-              <h3>Trykk på bildet for mer info om filmen</h3>
+            <li key={movie._id} className="movieItem">
+              <h5>{movie.title + " (" + movie.year + ")"}</h5>
               <Link
                 to={"/movie/" + movie.slug.current}
                 key={movie.slug.current}
@@ -89,7 +88,7 @@ const Movies = () => {
                   <span>{/* <h2>{movie.title}</h2> */}</span>
                 </span>
               </Link>
-              <h5>Skuespillere:</h5>
+              <h6>Cast:</h6>
               <Link to={`/actor/${movie.actor.name}`} key={movie.actor._id}>
                 <span key={movie.actor._id}>{movie.actor.fullName}</span>
                 {/* <img src={movie.actor.actorImage?.asset.url} alt="actorImage" /> */}

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getActor, getMoviesByActor } from "../lib/services/movieService";
 
 export default function Actor() {
@@ -37,7 +37,7 @@ export default function Actor() {
   }, [name]);
 
   return (
-    <div>
+    <div key={actor._id} className="mainActor">
       {/* {console.log(actor)} */}
       <h2>{actor.fullName}</h2>
       <span>
@@ -47,22 +47,20 @@ export default function Actor() {
           className="actorImg"
         />
       </span>
-      <h3>{actor.fullName} har både hovedrolle og birolle i filmene under</h3>
-
-      {movies &&
-        movies.map((movie) => (
-          // TODO - Style riktig !!
-          <div className="moviesWithinActor">
-            <span>
+      <h3>{actor.fullName} spiller i flere filmer som du kan se under</h3>
+      <ul className="actorMoviesList">
+        {movies &&
+          movies.map((movie, index) => (
+            <li key={movie._id} className="actorMoviesListItem">
               <h4>{movie.title}</h4>
               <img
                 src={movie.movieImage?.asset.url}
                 alt="movieImage"
                 className="movieImageInActor"
               />
-            </span>
-          </div>
-        ))}
+            </li>
+          ))}
+      </ul>
     </div>
   );
 }
